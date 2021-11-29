@@ -8,6 +8,20 @@ namespace PreAcademyA.Week3.CleanCode
 {
     class CodiceBello
     {
+        #region
+        // ISBN - International Standard Book Number è un identificatore numerico univoco del libro commerciale.
+        // La sua lunghezza è di 13 cifre di cui l'ultima è la cifra di controllo per il rilevamento degli errori.
+
+        // cifra di controllo ISBN-13 è calcolata da Modulo10 con pesi alternati di 1 e 3sulle prime 12 cifre.
+        // Esempio: 978300640615?
+        // 9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3 + 1×1 + 5×3 = 93.
+        // 93 /10 = 9 resto 3.
+        // La cifra di controllo è il valore necessario da aggiungere alla somma per renderla divisibile per 10. 
+        // Quindi la cifra di controllo è7. L'ISBN valido è 9780306406157 .
+        //Il tuo compito è convalidare un elenco di codici ISBN.
+        //Un codice ISBN valido dovrebbe contenere le cifre0 per 9 solo,
+
+        #endregion
 
         const int lunghezzaCartaDiCredito = 13;
         public static void Start()

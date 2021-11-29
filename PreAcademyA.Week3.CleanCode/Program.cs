@@ -6,7 +6,11 @@ namespace PreAcademyA.Week3.CleanCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //CleanCode
+            //CodiceBrutto.Start();
+            //CodiceBello.Start();
+            //Esercizio
+            CarteDiPagamento.Start();
         }
     }
 }
