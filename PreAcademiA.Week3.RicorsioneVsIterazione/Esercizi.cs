@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PreAcademiA.Week3.RicorsioneVsIterazione
 {
+    #region
     // Calcolare il fattoriale di un numero
     // n! = n * (n - 1) * (n - 2) ..... * 1
 
@@ -32,14 +33,9 @@ namespace PreAcademiA.Week3.RicorsioneVsIterazione
     //[1] == [x -1]   -> x
 
 
-
     // restituisce l'ennesimo numero della serie di fibonacci
     // 0 1 1 2 3 5 8 13 21 34 55 89 144
     // 0 1 2 3 4 5 6 7  8  9  10 11 12
-
-
-
-
 
 
     // Scrivere una funzione che dato un importo di denaro iniziale,
@@ -52,6 +48,8 @@ namespace PreAcademiA.Week3.RicorsioneVsIterazione
     // Dopo 1 anno : 10000 + (10000 * 3 / 100) = 10000 + 300 = 10300
     // Dopo 2 anni : 10300 + (10300 * 3 / 100) = 10300 + 309 = 10609
     // Dopo 3 anni : 10609 + (10609 * 3 / 100) = 10609 + 318,27 = 10927,27
+    #endregion
+
     class Esercizi
     {
         internal static long FattorialeIterazione(int n)
@@ -70,6 +68,7 @@ namespace PreAcademiA.Week3.RicorsioneVsIterazione
 
             //return n == 0 ? 1 : n * FattRicorsivo(n - 1);
         }
+
         // 0 1 2 3 4
         // r a d a r
         // p i p p o
@@ -86,7 +85,6 @@ namespace PreAcademiA.Week3.RicorsioneVsIterazione
             }
             return true;
         }
-
         // 0 1 2 3 4
         // r a d a r
         // X a d a X
