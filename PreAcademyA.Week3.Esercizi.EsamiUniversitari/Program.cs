@@ -1,4 +1,5 @@
 ﻿using System;
+using static PreAcademyA.Week3.Esercizi.EsamiUniversitari.DichiarazioneIndirizziCorsi;
 
 namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
 {
@@ -54,7 +55,32 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Studente appena immatricolato
+            Console.WriteLine("Inserisci il nome");
+            string nome = Console.ReadLine();
+            Console.WriteLine("Inserisci il cognome");
+            string cognome = Console.ReadLine();
+           
+            int annoNascita;
+            do
+            {
+                Console.WriteLine("Inserisci l'anno di nascita");
+            } while(!int.TryParse(Console.ReadLine(), out annoNascita));
+
+            var values = Enum.GetValues(typeof(IndirizziDiLaurea));
+            IndirizziDiLaurea indirizzoScelto;
+            do
+            {
+                Console.WriteLine("Scegli un indirizzo di laurea");
+                int count = 1;
+                foreach (var idl in values)
+                {
+                    Console.WriteLine($"Premi {count} per l'indirizzo di Laurea {idl}");
+                    count++;
+                }
+            } while (!Enum.TryParse(Console.ReadLine(), out indirizzoScelto));
+
+            Studente studente = new Studente(nome, cognome, annoNascita, indirizzoScelto);
         }
     }
 }

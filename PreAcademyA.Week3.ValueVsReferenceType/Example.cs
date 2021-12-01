@@ -17,12 +17,12 @@ namespace PreAcademyA.Week3.ValueVsReferenceType
             Season season;
 
             // Reference type - valore di default null
-            //string s;      // -> Attenzione al comportamento
-            //int[] ilMioArray;
-            //Person p;
-            //p = new Person();
-            //p.Eta = 10;
-            //var b = p.Name;
+            string s;      // -> Attenzione al comportamento
+            int[] ilMioArray;
+            Person p;
+            p = new Person();
+            p.Eta = 10;
+            var b = p.Name;
 
             //Value type - valore di default predefinito -> posso renderli nullabili
             int? iNull;
