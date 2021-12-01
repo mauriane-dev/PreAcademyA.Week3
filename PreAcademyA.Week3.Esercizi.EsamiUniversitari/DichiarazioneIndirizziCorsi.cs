@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
 {
     static class DichiarazioneIndirizziCorsi
     {
-        public static IndirizzoDiLaurea InizializeIndirizziCorsi(IndirizziDiLaurea indirizzoScelto)
+        // Se con costruttori
+        // public static IndirizzoDiLaurea InizializeIndirizziCorsi(IndirizziDiLaurea idl)
+        // {
+        // mancano i vari if
+        //}
+        public static List<IndirizzoDiLaurea> InizializeIndirizziCorsi()
         {
-            if (indirizzoScelto == IndirizziDiLaurea.Matematica)
-            {
+            List<IndirizzoDiLaurea> cdl = new List<IndirizzoDiLaurea>();
+            
                 List<Corso> corsiMatematica = new List<Corso>();
                 corsiMatematica.Add(new Corso("Algebra", 30));
                 corsiMatematica.Add(new Corso("Analisi Matematica", 40));
@@ -25,11 +29,10 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 }
                 //int tc = corsiMatematica.Sum(c => c.Cfu);
 
-                IndirizzoDiLaurea indirizzo = new IndirizzoDiLaurea(IndirizziDiLaurea.Matematica.ToString(), 3, totalCfu, corsiMatematica);
-                return indirizzo;
-            }
-            else if(indirizzoScelto == IndirizziDiLaurea.Lettere)
-            {
+                cdl.Add( new IndirizzoDiLaurea(IndirizziDiLaurea.Matematica.ToString(), 3, totalCfu, corsiMatematica));
+
+
+
                 List<Corso> corsiLettere = new List<Corso>();
                 corsiLettere.Add(new Corso("Letteratura", 30));
                 corsiLettere.Add(new Corso("Storia", 40));
@@ -38,18 +41,16 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 corsiLettere.Add(new Corso("Giornalismo", 10));
                 corsiLettere.Add(new Corso("Latino", 20));
 
-                int totalCfu = 0;
+                totalCfu = 0;
                 foreach (var corso in corsiLettere)
                 {
                     totalCfu += corso.Cfu;
                 }
-                int tc = corsiLettere.Sum(c => c.Cfu);
+                //int tc = corsiLettere.Sum(c => c.Cfu);
 
-                IndirizzoDiLaurea indirizzo = new IndirizzoDiLaurea(IndirizziDiLaurea.Lettere.ToString(), 3, totalCfu, corsiLettere);
-                return indirizzo;
-            }
-            else if (indirizzoScelto == IndirizziDiLaurea.Fisica)
-            {
+            cdl.Add(new IndirizzoDiLaurea(IndirizziDiLaurea.Lettere.ToString(), 3, totalCfu, corsiLettere));
+
+
                 List<Corso> corsiFisica = new List<Corso>();
                 corsiFisica.Add(new Corso("Fisica generale", 25));
                 corsiFisica.Add(new Corso("Fisica teorica", 35));
@@ -58,18 +59,15 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 corsiFisica.Add(new Corso("Informatica", 10));
                 corsiFisica.Add(new Corso("Elettromagnetismo", 20));
 
-                int totalCfu = 0;
+                totalCfu = 0;
                 foreach (var corso in corsiFisica)
                 {
                     totalCfu += corso.Cfu;
                 }
-                int tc = corsiFisica.Sum(c => c.Cfu);
+                //int tc = corsiFisica.Sum(c => c.Cfu);
 
-                IndirizzoDiLaurea indirizzo = new IndirizzoDiLaurea(IndirizziDiLaurea.Fisica.ToString(), 3, totalCfu, corsiFisica);
-                return indirizzo;
-            }
-            else if (indirizzoScelto == IndirizziDiLaurea.Informatica)
-            {
+            cdl.Add(new IndirizzoDiLaurea(IndirizziDiLaurea.Fisica.ToString(), 3, totalCfu, corsiFisica));
+            
                 List<Corso> corsiInformatica = new List<Corso>();
                 corsiInformatica.Add(new Corso("C", 25));
                 corsiInformatica.Add(new Corso("Basi di Dati", 35));
@@ -77,7 +75,7 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 corsiInformatica.Add(new Corso("Java", 50));
                 corsiInformatica.Add(new Corso("Logica dei calcolatori", 40));
 
-                int totalCfu = 0;
+                totalCfu = 0;
                 foreach (var corso in corsiInformatica)
                 {
                     totalCfu += corso.Cfu;
@@ -85,10 +83,7 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 int tc = corsiInformatica.Sum(c => c.Cfu);
 
                 IndirizzoDiLaurea indirizzo = new IndirizzoDiLaurea(IndirizziDiLaurea.Informatica.ToString(), 3, totalCfu, corsiInformatica);
-                return indirizzo;
-            }
-            else
-            {
+
                 List<Corso> corsiIngegneria = new List<Corso>();
                 corsiIngegneria.Add(new Corso("Analisi matematica", 25));
                 corsiIngegneria.Add(new Corso("Automatica", 35));
@@ -96,16 +91,16 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 corsiIngegneria.Add(new Corso("Geometria", 50));
                 corsiIngegneria.Add(new Corso("Inglese", 45));
 
-                int totalCfu = 0;
+                totalCfu = 0;
                 foreach (var corso in corsiIngegneria)
                 {
                     totalCfu += corso.Cfu;
                 }
-                int tc = corsiIngegneria.Sum(c => c.Cfu);
+                //int tc = corsiIngegneria.Sum(c => c.Cfu);
 
-                IndirizzoDiLaurea indirizzo = new IndirizzoDiLaurea(IndirizziDiLaurea.Ingegneria.ToString(), 3, totalCfu, corsiIngegneria);
-                return indirizzo;
-            }
+            cdl.Add(new IndirizzoDiLaurea(IndirizziDiLaurea.Ingegneria.ToString(), 3, totalCfu, corsiIngegneria));
+                return cdl;
+
         }
         public enum IndirizziDiLaurea
         {

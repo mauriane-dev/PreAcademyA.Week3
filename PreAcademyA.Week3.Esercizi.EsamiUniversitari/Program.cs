@@ -55,17 +55,21 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
     {
         static void Main(string[] args)
         {
+            var tuttiGliIndirizziDiLaurea = DichiarazioneIndirizziCorsi.InizializeIndirizziCorsi();
+
             // Studente appena immatricolato
+            Studente s = new Studente();
             Console.WriteLine("Inserisci il nome");
-            string nome = Console.ReadLine();
+            s.Nome = Console.ReadLine();
             Console.WriteLine("Inserisci il cognome");
-            string cognome = Console.ReadLine();
+           s.Cognome = Console.ReadLine();
            
             int annoNascita;
             do
             {
                 Console.WriteLine("Inserisci l'anno di nascita");
             } while(!int.TryParse(Console.ReadLine(), out annoNascita));
+            s.AnnoNascita = annoNascita;
 
             var values = Enum.GetValues(typeof(IndirizziDiLaurea));
             IndirizziDiLaurea indirizzoScelto;
@@ -80,7 +84,26 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
                 }
             } while (!Enum.TryParse(Console.ReadLine(), out indirizzoScelto));
 
-            Studente studente = new Studente(nome, cognome, annoNascita, indirizzoScelto);
+            Immatricolazione imm = new Immatricolazione();
+           
+
+            foreach(var singolaImmatricolazione in tuttiGliIndirizziDiLaurea)
+            {
+                if(singolaImmatricolazione.Nome == indirizzoScelto.ToString())
+                {
+                    imm.CorsoLaurea = singolaImmatricolazione;
+                }
+            }
+
+            imm.CfuAccumulati = 0;
+            imm.DataInizio = DateTime.Now;
+            imm.FuoriCorso = false; //
+            imm.FuoriCorso = imm.CalculateFuoriCorso(imm.DataInizio, imm.CorsoLaurea.AnniDiCorso);
+
+
+
+
+            //Studente studente = new Studente(nome, cognome, annoNascita, indirizzoScelto);
         }
     }
 }

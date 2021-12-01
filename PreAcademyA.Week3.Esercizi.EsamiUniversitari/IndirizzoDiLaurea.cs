@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
 {
@@ -22,7 +18,7 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
         }
     }
 
-    public struct Corso
+    public class Corso
     {
         public string Nome { get; set; }
         public int Cfu { get; set; }
@@ -30,6 +26,15 @@ namespace PreAcademyA.Week3.Esercizi.EsamiUniversitari
         {
             Nome = nome;
             Cfu = cfu;
+        }
+    }
+    public class Esame:Corso
+    {
+        public bool Passato { get; set; }
+        public Esame(string nome, int cfu, bool passato)
+            :base(nome, cfu)
+        {
+            Passato = passato;
         }
     }
 }
