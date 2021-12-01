@@ -27,7 +27,31 @@ namespace PreAcademyA.Week3.Esercizi.FigureGeometriche
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CentroStruct centro = new CentroStruct(-1, -2);
+            Cerchio cerchio = new Cerchio();
+            cerchio.Centro = centro;
+            cerchio.Raggio = 3;
+            cerchio.Nome = "Cerchio";
+            //cerchio.CalcolaPerimetro();
+            //cerchio.CalcolaArea();
+            cerchio.DisegnaForma();
+            cerchio.LeggiDaFile("ilPathDelMioFile");
+            cerchio.ScriviSuFile("ilPathDelMioFile");
+
+            Rettangolo rettangolo = new Rettangolo();
+            rettangolo.Nome = "Rettangolo";
+            rettangolo.Base = 5;
+            rettangolo.Altezza = 10;
+            rettangolo.DisegnaForma();
+
+            Triangolo triangolo = new Triangolo();
+            triangolo.Nome = "Triangolo";
+            triangolo.Lato1 = 6;
+            triangolo.Lato2 = 3;
+            triangolo.Base = 5;
+            triangolo.Altezza = 10;
+            triangolo.DisegnaForma();
+
         }
     }
 }
