@@ -10,6 +10,12 @@ namespace PreAcademyA.Week3.Generics.Entities
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+
+        public Padre(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
     }
 
 }
