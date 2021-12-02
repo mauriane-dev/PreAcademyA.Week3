@@ -57,5 +57,10 @@ namespace PreAcademyA.Week3.Esercizi.Libreria.Repository
             }
             return audiolibriDurata;
         }
+
+
+        // Un repo dovrebbe contenere solo le operazioni di CRUD
+        // Add, Remove, GetById, Fetch, Update
+        // E' il business layer a essere il responsabile delle operazione di filtro
     }
 }
