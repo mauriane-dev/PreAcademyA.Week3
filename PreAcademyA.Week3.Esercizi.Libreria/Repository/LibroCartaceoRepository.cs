@@ -45,6 +45,18 @@ namespace PreAcademyA.Week3.Esercizi.Libreria
                     lc.QuantitaMagazzino = qnt;
                 }
             }
+
+            var libro = from libroInLibriCartacei in libriCartacei     // Dalla mia lista di libri cartacei
+                        where libroInLibriCartacei.Titolo == titolo    // filtrami i libri dove il titolo è uguale al titolo inserito dall'utente
+                        select libriCartacei;                          // ritornami i libri che verificano la condizione della where
+
+            // =>
+
+            // prende tutti i libri
+            // crea una funzione booleana che mette un flag true dove la condizione è verificata
+            // ritorna gli elementi con il flag a true
+
+            var libriFIltrati = libriCartacei.Where(l => l.Titolo == titolo).ToList();
         }
 
         //Libro che l'utente vuole aggiungere ma che c'è già in magazzino
@@ -61,13 +73,31 @@ namespace PreAcademyA.Week3.Esercizi.Libreria
         internal List<LibroCartaceo> GetByPrice(double p)
         {
             List<LibroCartaceo> lc = new List<LibroCartaceo>();
-            foreach(var libro in libriCartacei)
-            {
-                if (libro.Prezzo > p)
-                {
-                    lc.Add(libro);
-                }
-            }
+            //foreach(var libro in libriCartacei)
+            //{
+            //    if (libro.Prezzo > p)
+            //    {
+            //        lc.Add(libro);
+            //    }
+            //}
+
+            var libri = from libriNellaLista in libriCartacei
+                        where libriNellaLista.Prezzo > p
+                        select libriCartacei;
+
+            // Where -> restituisce tutti gli elementi che verificano la condizione
+            lc = libriCartacei.Where(l => l.Prezzo > p).ToList();
+
+            // All -> verifica che la condizione valga per ogni elemento 
+            bool tuttiILibriHannoPrezzoMaggioreDi1000 = libriCartacei.All(l => l.Prezzo > 10000);
+
+            // Contains -> Verifica che un elemento sia contenuto nella lista
+            LibroCartaceo libroC = new LibroCartaceo(32.5, "Titolo", "Autore", 32, 45);
+            bool ilLibroEsisteNellaLista = libriCartacei.Contains(libroC);
+
+            // Find -> restituisce il primo elemento che verifica la condizione
+            var primoLibroCheVErificaLaCondizione = libriCartacei.Find(l => l.Prezzo > p);
+
 
             return lc;
             //return libriCartacei.Where(lc => lc.Prezzo > p).ToList();
