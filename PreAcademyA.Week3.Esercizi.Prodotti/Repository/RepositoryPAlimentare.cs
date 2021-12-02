@@ -1,28 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PreAcademyA.Week3.Esercizi.Prodotti.Repository
 {
     class RepositoryPAlimentare : IRepositoryManager<ProdottoAlimentare>
     {
-        static List<ProdottoAlimentare> prodottiAlimentari = new List<ProdottoAlimentare>() { };
+        static List<ProdottoAlimentare> prodottiAlimentari = new List<ProdottoAlimentare>() 
+        {
+            new ProdottoAlimentare("AL01", 3.50, "Gelato", new DateTime(2021, 12,31)),
+            new ProdottoAlimentare("AL02", 1.99, "Jogurt", new DateTime(2021, 08,30))
+        };
 
         public List<ProdottoAlimentare> Fetch()
         {
-            throw new NotImplementedException();
+            return prodottiAlimentari;
         }
 
         public List<ProdottoAlimentare> GetByPrice(double price)
         {
-            throw new NotImplementedException();
+            return prodottiAlimentari.Where(pa => pa.Prezzo <= price).ToList();
         }
 
-        public List<ProdottoAlimentare> GetByDataDiScadenza(DateTime dt)
+        internal List<ProdottoAlimentare> GetByDate(DateTime dt)
         {
-            throw new NotImplementedException();
+            return prodottiAlimentari.Where(pa => pa.DataScadenza >= dt).ToList();
         }
     }
 }
