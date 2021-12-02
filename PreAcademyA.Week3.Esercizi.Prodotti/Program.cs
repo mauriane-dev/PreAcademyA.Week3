@@ -97,6 +97,7 @@ Verrà stampato a video il totale dei prodotti nel carrello
                             double price = ChiediPrezzo();
                             List<Prodotto> prodotti = GetProdottiByPrice(price);
                             Stampa(prodotti);
+                            StampaInserimentoProdotto(prodotti);
                             break;
                         }
                     case 3:
@@ -193,9 +194,9 @@ Verrà stampato a video il totale dei prodotti nel carrello
             TagliaEnum tagliaScelta;
             do
             {
-                Console.WriteLine("Inserisci una data");
+                Console.WriteLine("Inserisci una taglia");
                 taglia = Console.ReadLine();
-            } while (Enum.TryParse(taglia, out tagliaScelta));
+            } while (!Enum.TryParse(taglia, out tagliaScelta));
 
             return tagliaScelta;
         }
@@ -204,7 +205,7 @@ Verrà stampato a video il totale dei prodotti nel carrello
             string marca;
             do
             {
-                Console.WriteLine("Inserisci una data");
+                Console.WriteLine("Inserisci una marca");
                 marca = Console.ReadLine();
             } while (String.IsNullOrEmpty(marca));
 
