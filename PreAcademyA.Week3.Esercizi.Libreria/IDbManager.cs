@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PreAcademyA.Week3.Generics.Entities
+namespace PreAcademyA.Week3.Esercizi.Libreria
 {
-    class Figlio1: Padre
+    interface IDbManager<T>
     {
-        public int Eta { get; set; }
-
-
+        public List<T> Fetch();
     }
 }

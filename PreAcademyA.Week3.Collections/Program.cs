@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 //using System.Linq;
 
 namespace PreAcademyA.Week3.Collections
@@ -71,7 +72,7 @@ namespace PreAcademyA.Week3.Collections
             dictionary1.Add(12, "Gatto"); //Posizione 1 ma la chiave è 12
             dictionary1.Add(25, "Cane");
             dictionary1.Add(35, "Topo");
-            // dictionary1.Add(35, ""); -> Non posso aggiungere un elemento con la stessa chiave
+           //dictionary1.Add(35, ""); -> Non posso aggiungere un elemento con la stessa chiave
 
             // Contiene elemento?
             bool containsKey = dictionary1.ContainsKey(3);
@@ -116,7 +117,7 @@ namespace PreAcademyA.Week3.Collections
             laMiaLista.Add("PrimaStringa");    // 0
             laMiaLista.Add("SecondaStringa");  // 1
             laMiaLista.Add("TerzaStringa");    // 2
-            //laMiaLista.Add(3);
+            // laMiaLista.Add(3);
             // Ammette duplicati
             laMiaLista.Add("TerzaStringa");
 

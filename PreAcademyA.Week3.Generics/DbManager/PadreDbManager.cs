@@ -10,7 +10,7 @@ namespace PreAcademyA.Week3.Generics.DbManager
     class PadreDbManager: IDbManager<Padre>
     {
 
-       static List<Padre> padri = new List<Padre>() { new Padre(1, ""), new Padre(2, "")};
+        static List<Padre> padri = new List<Padre>(); //{ new Padre(1, ""), new Padre(2, "")};
 
         public void Add(Padre t)
         {
