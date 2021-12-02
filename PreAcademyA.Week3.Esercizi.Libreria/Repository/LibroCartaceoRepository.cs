@@ -35,8 +35,16 @@ namespace PreAcademyA.Week3.Esercizi.Libreria
 
         internal void UpdateQuantity(string titolo, int qnt)
         {
-            LibroCartaceo lc = libriCartacei.Where(lc => lc.Titolo == titolo).ToList()[0];
-            lc.QuantitaMagazzino = qnt;
+            //LibroCartaceo lc = libriCartacei.Where(lc => lc.Titolo == titolo).ToList()[0];
+            //lc.QuantitaMagazzino = qnt;
+
+            foreach( var lc in libriCartacei)
+            {
+                if (lc.Titolo == titolo)
+                {
+                    lc.QuantitaMagazzino = qnt;
+                }
+            }
         }
 
         //Libro che l'utente vuole aggiungere ma che c'è già in magazzino
